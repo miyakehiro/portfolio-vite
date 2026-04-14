@@ -1,0 +1,9 @@
+/*  common
+================================================ */
+@use "02_base/_reset.scss";
+@use "02_base/_base.scss";
+@use "03_layout" as layout;
+@use "04_component" as component;
+@use "05_helper" as helper;
+@use "06_utility" as utility;
+@use "07_page" as page;

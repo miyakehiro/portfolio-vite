@@ -1,0 +1,19 @@
+{
+    "data": {
+        "header": {
+            "index": {
+                "title":"my page",
+                "description": "このサイトは、フォリオサイトです。これまで手掛けたwebサイト、自身のスキル・経歴をまとめています",
+                "keywords": "フロントエンドエンジニア,コーダー,コーディング,HTML,CSS,SCSS,Javascript,PHP,WordPress,ポートフォリオ",
+                "slug": "home",
+                "baseUrl": "",
+                "cssSrc": "css",
+                "imgSrc": "img",
+                "jsSrc": "js"
+            }
+        },
+        "footer": {
+            "jsSrc": "js"
+        }
+    }
+}

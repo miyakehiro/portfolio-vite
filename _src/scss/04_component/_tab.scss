@@ -1,0 +1,17 @@
+@use "../01_setting/_mixin.scss" as m;
+@use "../01_setting/_var.scss" as v;
+/*
+tab
+-------------------------------------- */
+.c-tab01 {
+	display: flex;
+	flex-wrap: wrap;
+	&__item {
+		margin-right: 5px;
+		padding: 5px 10px;
+		&.is-active {
+			background: #333;
+			color: #fff;
+		}
+	}
+}

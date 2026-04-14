@@ -1,0 +1,127 @@
+@use "../01_setting/_mixin.scss" as m;
+@use "../01_setting/_var.scss" as v;
+/* .l-footer
+================================================ */
+.l-footer {
+	padding: 35px 0 ;
+	background: v.$clr_black;
+	text-align: center;
+	@include m.mq {
+		padding: 60px 0 0;
+	}
+}
+/* .c-pagetop
+================================================ */
+.ft-pagetop {
+	@include m.mq(sp) {
+		position: static !important;
+	}
+	&__link {
+		padding: 15px 0 20px;
+		background: #7e7e7e;
+		color: #fff;
+		text-align: center;
+		text-decoration: none;
+		overflow: hidden;
+		text-indent: 200%;
+		white-space: nowrap;
+		position: relative;
+		&::after{
+			content: '';
+			width: 16px;
+			height: 16px;
+			border: 0px;
+			border-top: solid 2px #fff;
+			border-right: solid 2px #fff;
+			-ms-transform: rotate(-45deg);
+			-webkit-transform: rotate(-45deg);
+			transform: rotate(-45deg);
+			position: absolute;
+			left: 50%;
+			margin-left: -8px;
+		}
+	}
+	@media (min-width: 600px){
+		opacity: 0;
+		visibility: hidden;
+		position: fixed;
+		right: 0;
+		bottom: 0;
+		margin: 0 30px 30px 0;
+		&.is-view {
+			opacity: 1;
+			visibility: visible;
+		}
+		&__link {
+			width: 50px;
+			height: 50px;
+			opacity: 0.949;
+			box-shadow: 0px 0px 8px 0px rgba(0, 0, 0, 0.2);
+			padding: 0;
+			&::after{
+				width: 12px;
+				height: 12px;
+				top: 50%;
+				left: 50%;
+				margin-top: -6px;
+				margin-left: -6px;
+			}
+		}
+	}
+}
+
+/* .ft-content
+================================================ */
+.ft-content{
+	&__inner{
+		.ft-content-nav{
+			&__item{
+				+.ft-content-nav__item{
+					margin-top: 15px;
+				}
+				&-link{
+					color: #fff;
+					text-decoration: none;
+					&:hover{
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
+	@include m.mq(tb){
+		&__inner{
+			.ft-content-nav{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 0 40px;
+				&__item{
+					+.ft-content-nav__item{
+						margin-top: 0;
+					}
+					&-link{
+					}
+				}
+			}
+		}
+
+	}
+	@include m.mq(pc){
+		padding: 0 80px 40px;
+	}
+}
+
+/* .ft-cr
+================================================ */
+.ft-cr{
+	border-top: 1px solid  #464646;
+	padding: 18px 0 19px;
+	font-size: 1rem;
+	color: #a3a3a3;
+	text-align: center;
+	@include m.mq{
+		padding: 26px 0 24px;
+		font-size: 1.1rem;
+	}
+}

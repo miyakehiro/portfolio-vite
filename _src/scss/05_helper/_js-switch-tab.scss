@@ -1,0 +1,12 @@
+@use "../01_setting/_mixin.scss" as m;
+@use "../01_setting/_var.scss" as v;
+
+.js-switch-tab {
+	cursor: pointer;
+}
+.js-switch-content {
+	display: none;
+	&.is-active {
+		display: block;
+	}
+}

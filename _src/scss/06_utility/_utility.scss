@@ -1,0 +1,56 @@
+@use "../01_setting/_mixin.scss" as m;
+@use "../01_setting/_var.scss" as v;
+/* pc <--> sp
+-------------------------------------- */
+.u-media-query {
+	display: none;
+	font-family: 'sp';
+	@include m.mq {
+		font-family: 'pc';
+	}
+}
+.u-view-pc {
+	@include m.mq(sp) {
+		display: none !important;
+	}
+}
+.u-view-sp {
+	@include m.mq {
+		display: none !important;
+	}
+}
+
+/* link
+-------------------------------------- */
+.u-alpha {
+	display: block;
+	text-decoration: none;
+	@include m.mq {
+		@include m.trans;
+		&:hover {
+			opacity: .7;
+		}
+	}
+}
+
+
+/* layout
+-------------------------------------- */
+.u-cf::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.u-inner{
+	box-sizing: border-box;
+	padding: 0 20px;
+	@include m.mq(tb){
+		padding: 0 40px;
+	}
+	@include m.mq(pc) {
+		width: 100%;
+		max-width: v.$contents_width;
+		margin: auto;
+		padding: 0;
+	}
+}

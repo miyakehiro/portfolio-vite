@@ -1,0 +1,149 @@
+[
+    {
+        "title": "ふるさとたまご村",
+        "link": "https://tamagomura.net/",
+        "img" : "img/home/works/img23.jpg",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "株式会社阪田モーター商会",
+        "link": "https://sakata-moter.com/",
+        "img" : "img/home/works/img22.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "ケアサポートまもり",
+        "link": "https://mamori-care.com/",
+        "img" : "img/home/works/img21.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "株式会社 興栄（KOU SAKA）",
+        "link": "https://osaka-osho.com/",
+        "img" : "img/home/works/img20.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "有限会社 まこと美装",
+        "link": "https://makotobiso.com/",
+        "img" : "img/home/works/img19.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "大冨造園",
+        "link": "https://oh-tomi.com/",
+        "img" : "img/home/works/img18.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "Doula Station 小春日和",
+        "link": "https://doulakoharubiyori.com/",
+        "img" : "img/home/works/img17.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "からあげ喜、",
+        "link": "https://karaagekiten.com/",
+        "img" : "img/home/works/img15.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "西金型工業株式会社",
+        "link": "https://nishi-kanagata.com/",
+        "img" : "img/home/works/img14.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "株式会社 北洋工機",
+        "link": "https://hokuyo-koki.com/",
+        "img" : "img/home/works/img12.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "有限会社 京鈴",
+        "link": "https://kyosuzu.com/",
+        "img" : "img/home/works/img11.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "京田辺市観光ボランティア協会",
+        "link": "https://kyotanabe-guide.com/",
+        "img" : "img/home/works/img10.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "有限会社アークス",
+        "link": "https://arcs.cc/",
+        "img" : "img/home/works/img09.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "公益社団法人 京都ビルメンテナンス協会",
+        "link": "https://kyoto-bma.or.jp/",
+        "img" : "img/home/works/img08.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "京佛壇 誠心堂",
+        "link": "https://seishindo-kyoto.com/",
+        "img" : "img/home/works/img07.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "ステーションボウル新田辺",
+        "link": "https://stationbowl.jp/",
+        "img" : "img/home/works/img06.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "山城書店",
+        "link": "https://honya-de-hitoyasumi.com/",
+        "img" : "img/home/works/img05.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "フラワーショップ山崎家",
+        "link": "https://yamasakike.com/",
+        "img" : "img/home/works/img04.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "ガイア",
+        "link": "https://j-gaia.com/",
+        "img" : "img/home/works/img03.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "特別養護老人ホーム セピアの園",
+        "link": "https://sepianosono.jp/",
+        "img" : "img/home/works/img02.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "株式会社 セレモニー 遥",
+        "link": "https://haruka-kyoto.com/",
+        "img" : "img/home/works/img01.png",
+        "create": "create",
+        "update": "update"
+    }
+]

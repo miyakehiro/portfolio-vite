@@ -1,0 +1,30 @@
+@use "../01_setting/_mixin.scss" as m;
+@use "../01_setting/_var.scss" as v;
+/*
+talbe
+-------------------------------------- */
+.c-table01 {
+	th,td {
+		padding: 10px;
+	}
+	@include m.mq(sp) {
+		table,thead,tbody,tr,th,td {
+			display: block;
+		}
+		th,td {
+			border-top: 1px solid v.$clr_border;
+		}
+	}
+	@include m.mq {
+		th,td {
+			border: 1px solid v.$clr_border;
+		}
+		th {
+			padding: 10px 15px;
+		}
+		td {
+			padding: 10px 15px;
+			vertical-align: middle;
+		}
+	}
+}

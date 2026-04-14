@@ -1,0 +1,39 @@
+@use 'sass:map';
+@mixin trans($prop: all, $time: .3s, $easing: ease) {
+	transition: $prop $time $easing;
+}
+
+$breakpoints: (
+	'sp': 'all and (max-width: 599px)',
+	'tb': 'all and (min-width: 600px)',
+	'pc': 'all and (min-width: 1200px)',
+) !default;
+
+@mixin mq($breakpoint: pc) {
+	@media #{map.get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+@mixin transform($value) {
+		-webkit-transform: $value;
+		-ms-transform: $value;
+	transform: $value;
+}
+
+
+@mixin en{
+	font-family: 'Oswald', sans-serif;
+}
+
+@mixin skew{
+	transform:skewY(-3.5deg);
+	transform-origin: left top;
+	.inner{
+		transform:skewY(3.5deg);
+	}
+}
+
+@mixin bold{
+	font-family: "游ゴシック体", YuGothic, "游ゴシック", "Yu Gothic", "Hiragino Kaku Gothic ProN","メイリオ", sans-serif;
+	font-weight: bold;
+}

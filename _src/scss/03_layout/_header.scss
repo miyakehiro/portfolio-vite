@@ -1,0 +1,222 @@
+@use "../01_setting/_mixin.scss" as m;
+@use "../01_setting/_var.scss" as v;
+/* .l-header
+================================================ */
+.l-header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	min-width: 320px;
+	z-index: 2000;
+	background: #fff;
+	@include m.mq(pc) {
+		width: 100%;
+		min-width: v.$contents_width;
+	}
+}
+/* .l-header .hd-info
+-------------------------------------- */
+.l-header .hd-info {
+	position: relative;
+	z-index: 3;
+	height: 45px;
+	&-inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		height: 100%;
+		border-bottom: 1px solid #f2f2f2;
+		padding: 0 15px;
+	}
+	&__logo {
+		font-size: 1.8rem;
+		font-weight: 700;
+		text-align: center;
+	}
+	@include m.mq(tb) {
+		height: 60px;
+		@include m.trans;
+		&-inner{
+			border-bottom: none;
+			padding: 0 30px;
+		}
+		&__logo {
+			font-size: 2rem;
+		}
+	}
+	@include m.mq(pc) {
+		height: 80px;
+		padding: 0;
+		background: none;
+		z-index: 8;
+		@include m.trans;
+		&-inner{
+			border-bottom: none;
+		}
+		&__logo {
+			font-size: 3rem;
+			&.is-open{
+				display: none;
+			}
+		}
+		&__btn-contact {
+			margin: 0;
+		}
+	}
+}
+/* .l-header .nav-btn
+-------------------------------------- */
+.l-header .nav-btn {
+	position: absolute;
+	top: 8px;
+	right: 16px;
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	&__line {
+		position: absolute;
+		left: 5px;
+		width: 20px;
+		height: 2px;
+		content: '';
+		background: v.$clr_black;
+		@include m.trans;
+		&:nth-child(1) { top: 7px; }
+		&:nth-child(2) { top: 14px; }
+		&:nth-child(3) { top: 21px; }
+	}
+	&.is-open {
+		.nav-btn__line {
+			&:nth-child(1) { top: 15px; transform: rotate(-45deg); }
+			&:nth-child(2) { opacity: 0; }
+			&:nth-child(3) { top: 15px; transform: rotate(45deg); }
+		}
+	}
+	@include m.mq(tb){
+		top: 8px;
+		right: 20px;
+		width: 45px;
+		height: 45px;
+		&__line {
+			left: 5px;
+			width: 36px;
+			height: 2px;
+			@include m.trans;
+			&:nth-child(1) { top: 10px; }
+			&:nth-child(2) { top: 20px; }
+			&:nth-child(3) { top: 30px; }
+		}
+		&.is-open {
+			.nav-btn__line {
+				&:nth-child(1) { top: 18px; transform: rotate(-45deg); }
+				&:nth-child(3) { top: 18px; transform: rotate(45deg); }
+			}
+		}
+	}
+	@media (min-width: 800px){
+		display: none;
+	}
+}
+/* .l-nav
+================================================ */
+.l-nav {
+	position: absolute;
+	top: 45px;
+	left: 0;
+	z-index: 5;
+	width: 100%;
+	max-height: calc(100vh - 70px);
+	min-width: 320px;
+	padding: 35px 25px 40px;
+	background: #fff;
+	border-top: 1px solid  #f2f2f2;
+	box-sizing: border-box;
+	text-align: center;
+	-webkit-overflow-scrolling : touch;
+	@include m.trans;
+	overflow: auto;
+	transform: translateX(120%);
+	&::-webkit-scrollbar {
+		display: none;
+	}
+	&.is-open {
+		transform: translateX(0);
+	}
+	.nav-list {
+		&__item {
+			text-align: center;
+			+.nav-list__item{
+				margin-top: 20px;
+			}
+		}
+		&__link {
+			display: block;
+			font-size: 1.4rem;
+			font-weight: bold;
+			line-height: calc(60/34);
+			text-decoration: none;
+		}
+	}
+	@media (min-width: 800px) {
+		transform: inherit;
+		position: static;
+		width: auto;
+		max-height: inherit;
+		padding: 0;
+		border: none;
+		.nav-list {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 0;
+			gap: 0 20px;
+			&__item {
+				letter-spacing: 0;
+				+.nav-list__item{
+					margin-top: 0;
+				}
+			}
+			&__link {
+				display: block;
+				position: relative;
+				font-size: 1.4rem;
+				@include m.trans;
+				&::before{
+					display: block;
+					position: absolute;
+					content: "";
+					top: 0;
+					left: 0;
+					background: #fff;
+					width: 100%;
+					height: 100%;
+					opacity: 0;
+					@include m.trans;
+				}
+				&:hover{
+					&::before{
+						opacity: .4;
+					}
+				}
+			}
+		}
+	}
+}
+
+/* .nav-overlay
+================================================ */
+.nav-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,.25);
+	z-index: 1000;
+	@include m.mq {
+		display: none !important;
+	}
+}

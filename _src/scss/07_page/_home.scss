@@ -1,0 +1,548 @@
+@use "../01_setting/_mixin.scss" as m;
+@use "../01_setting/_var.scss" as v;
+
+#home{
+	.sec{
+		padding-bottom: 60px;
+		+.sec{
+			padding: 60px 0;
+		}
+		@include m.mq(tb){
+			+.sec{
+				padding: 85px 0;
+			}
+		}
+		@include m.mq(pc){
+			+.sec{
+				padding: 120px 0;
+			}
+		}
+	}
+}
+
+/* .home-about
+================================================ */
+#home .home-about{
+	.txt{
+		margin-top: 25px;
+		line-height: 2;
+	}
+	@include m.mq(tb){
+		margin-top: 40px;
+		.txt{
+			text-align: center;
+		}	
+	}
+}
+
+
+/* .home-profile
+================================================ */
+#home .home-profile{
+	&__box{
+		display: flex;
+		justify-content: center;
+		flex-direction: column;
+		box-sizing: border-box;
+		margin-top: 30px;
+		.img{
+			width: 50vw;
+			max-width: 200px;
+			margin: 0 auto;
+		}
+		.txt{
+			// margin-top: 25px;
+			line-height: 2;
+		}
+	}
+	@include m.mq(tb){
+		&__inner{
+			max-width: 580px;
+			margin: 0 auto;
+		}
+		&__box{
+			justify-content: space-between;
+			flex-direction: row;
+			align-items: center;
+			margin-top: 40px;
+			gap: 0 50px;
+			.img{
+				width: calc(35% - 30px);
+				margin: 0;
+			}
+			.txt{
+				margin: 0;
+				// width: calc(65% - 15px);
+			}	
+		}
+	}
+}
+
+
+/* .home-works
+================================================ */
+#home .home-works{
+	&__lead{
+		margin-top: 30px;
+		.ico{
+			display: inline-block;
+			position: relative;
+			top: -2px;
+			margin-right: 2px;
+			padding: 3px 4px 4px;
+			border-radius: 5px;
+			line-height: 1;
+			color: #fff;
+			&.create{
+				background-color: #ec8f15;
+			}
+			&.update{
+				background-color: #061df0;
+			}
+		}
+		.note{
+			display: inline-block;
+			position: relative;
+			margin-top: 10px; 
+			padding-left: 15px; 
+			font-size:  clamp(1.1rem, 4vw, 1.2rem);
+			&::before{
+				display: block;
+				content: "※";
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-size:  clamp(1.1rem, 4vw, 1.2rem);
+			}
+		}
+	}
+	&__box{
+		margin-top: 30px;
+		.tab-scroll{
+			overflow-x: scroll;
+		}
+		.tab-list{
+			display: flex;
+			box-sizing: border-box;
+			width: 500px;
+			gap: 0 25px;
+			&-item{
+				position: relative;
+				padding-bottom: 5px;
+				&.is-active{
+					border-bottom: 2px solid #565656;
+				}
+				&::before{
+					display: block;
+					content: "";
+					position: absolute;
+					background: #fff;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					opacity: 0;
+					@include m.trans;
+				}
+				&:hover{
+					&::before{
+						opacity: 0.4;
+					}
+				}
+			}
+		}
+		.lead{
+			margin-top: 15px;
+		}
+		.list-box{
+			&.is-active{
+				display: block;
+			}
+		}
+		.list{
+			margin: 15px -20px 0;	
+			&.text-list{
+				.list__item{
+					width: auto;
+					border-bottom: 1px solid #333;
+					.link{
+						text-decoration: underline;
+						&::before{
+							display: none;
+							position: static;
+						}
+						&:hover{
+							text-decoration: none;
+						}						
+						.sub-tit{
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							height: 64px;
+							margin-top: 0;
+							text-align: left;
+							&.create, &.update{
+								padding-left: 45px;
+								&::before,&::after{
+								top: 12px;
+								left: 0;
+								width: 38px;
+								height: 18px;
+								margin-top: -9px;
+								margin-left: 0;
+								}
+							}
+							&.create{
+								&::before{
+									top: 50%;
+									left: 0;
+								}
+								&.update{
+									&::after{
+										top: 33px;
+										margin: 0;
+									}
+								}
+							}
+							&.update{
+								&::after{
+									top: 50%;
+									left: 0;
+								}
+								&.create{
+									&::before{
+										top: 12px;
+										margin: 0;
+									}
+								}
+							}
+						}
+					}
+					.link[href=""]{
+						text-decoration: none;
+						pointer-events: none;
+					}
+				}
+			}
+			.slick-track{
+				padding-bottom: 30px;
+			}
+			&__item{
+				margin: 0 10px;
+				.link{
+					display: block;
+					text-decoration: none;
+					position: relative;
+					&::before{
+						display: block;
+						content: "";
+						position: absolute;
+						background: #fff;
+						top: 0;
+						left: 0;
+						width: 100%;
+						height: 100%;
+						opacity: 0;
+						@include m.trans;
+					}
+					&:hover{
+						&::before{
+							opacity: 0.4;
+						}
+					}
+					.sub-tit{
+						margin-top: 10px;
+						text-align: center;
+						line-height: 1.5;
+						&.create, &.update{
+							position: relative;
+							&::before,&::after{
+							   display: flex;
+							   align-items: center;
+							   justify-content: center;
+							   position: absolute;
+							   top: 30px;
+							   left: 50%;
+							   width: 38px;
+							   height: 20px;
+							   margin-left: -44px;
+							   border-radius: 5px;
+							   font-size: clamp(1rem, 4vw, 1.2rem);
+							   line-height: 1;
+							   text-align: center;
+							   color: #fff;
+							}
+						}
+						&.create{
+							&::before{
+								content: "製作";
+								background-color: #ec8f15;
+							}
+							&.update{
+								&::after{
+									margin-left: 4px;
+								}
+							}
+						}
+						&.update{
+							&::after{
+								content: "管理";
+								background-color: #061df0;
+							}
+						}
+					}
+				}
+			}
+			.slick-arrow{
+				z-index: 50;
+				top: calc(50% - 8vw);
+				border-top: 1px solid #333;
+				border-left: 1px solid #333;
+				&.slick-prev{
+					left: 15px;
+					transform:rotate(-45deg); 
+					&::before{
+						content: "";
+					}
+				}
+				&.slick-next{
+					right: 15px;
+					transform:rotate(135deg); 
+					&::before{
+						content: "";
+					}
+				}
+			}
+			.slick-dots{
+				bottom: -50px;
+				&>li{
+					&:only-child{
+						display: none;
+					}
+				}
+				li{
+					width: 10px;
+					height: 10px;
+					margin: 0 8px;
+					button{
+						width: 10px;
+						height: 10px;
+						&::before{
+							display: block;
+							content: "";
+							background: #333;
+							border-radius: 50%;
+							width: 10px;
+							height: 10px;
+
+						}
+					}
+				}
+			}
+		}
+	}
+	@include m.mq(tb){
+		&__box{
+			margin-top: 40px;
+			.tab-scroll{
+				overflow-x: auto;
+			}
+			.tab-list{
+				width: auto;
+				gap: 0;
+				&-item{
+					width: 20%;
+					text-align: center;
+				}
+			}
+			.list{
+				display: flex;
+				flex-wrap: wrap;
+				box-sizing: border-box;
+				justify-content: space-between;
+				margin: 20px 0 0;
+				&.text-list{
+					display: block;
+					.list__item{
+						margin-top: 0;
+						font-size: 1.4rem;
+						letter-spacing: normal;
+						.link{
+							text-decoration: underline;
+						}
+					}
+				}
+				&__item{
+					width: calc(50% - 15px);
+					margin: 0;
+					&:nth-child(n+3){
+						margin-top: 60px;
+					}
+					.link{
+						.sub-tit{
+							&.create, &.update{
+								&::before,&::after{
+								   top: auto;
+								   bottom: -30px;
+								   margin-left: -42px;
+								}
+							}
+							&.create{
+								&.update{
+									&::after{
+										margin-left: 5px;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	@media (min-width: 800px){
+	&__lead{
+		max-width: 740px;
+		margin: 40px auto 0;
+	}
+		&__box{
+			margin-top: 60px;
+			.list{
+				justify-content: flex-start;
+				gap: 0 30px;
+				&.text-list{
+					.list__item{
+						margin: 0;
+						.link{
+							&.create, &.update{
+								position: relative;
+								padding-left: 50px;
+								&::before,&::after{
+								   top: 12px;
+								   width: 38px;
+								   height: 22px;
+								   margin-top: -11px;
+								}
+							}
+							&.create{
+								&::before{
+									top: 50%;
+								}
+								&.update{
+									&::after{
+										top: 34px;
+										margin: 0;
+									}
+								}
+							}
+							&.update{
+								&::after{
+									top: 50%;
+								}
+								&.create{
+									&::before{
+										top: 8px;
+									}
+								}
+							}
+						}
+					}
+				}
+				&__item{
+					width: calc(33.333% - 20px);
+					margin: 0;
+					&:nth-child(n+3){
+						margin-top: 0;
+					}
+					&:nth-child(n+4){
+						margin-top: 60px;
+					}
+					.link{
+						.sub-tit{
+							&.create, &.update{
+								&::before,&::after{
+								   width: 38px;
+								   height: 22px;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/* .home-skill
+================================================ */
+#home .home-skill{
+	&__box{
+		margin-top: 30px;
+		.list{
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+			align-items: stretch;
+			box-sizing: border-box;
+			gap: 30px 15px;
+			&-item{
+				width: calc(50% - 15px);
+				.img{
+					display: block;
+					width: 50%;
+					max-width: 60px;
+					margin: 0 auto;
+				}
+				.txt-box{
+					margin-top: 10px;
+					.sub-tit{
+						font-size: clamp(1.6rem, 3vw, 1.8rem);
+						text-align: center;
+						font-weight: 700;
+					}
+					.txt{
+						margin-top: 10px;
+					}
+				}
+			}
+		}
+	}
+	@include m.mq(tb){
+		&__box{
+			margin-top: 40px;
+			.list{
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				align-items: stretch;
+				box-sizing: border-box;
+				gap: 40px 15px;
+				&-item{
+					display: flex;
+					box-sizing: border-box;
+					gap: 0 30px;
+					.img{
+						width: calc(25% - 20px);
+						margin: 0;
+						margin-top: 15px;
+					}
+					.txt-box{
+						width: calc(75% - 15px);
+						.sub-tit{
+							font-weight: 700;
+							text-align: left;
+						}
+						.txt{
+							margin-top: 5px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+	
+
+

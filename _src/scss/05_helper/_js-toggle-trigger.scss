@@ -1,0 +1,9 @@
+@use "../01_setting/_mixin.scss" as m;
+@use "../01_setting/_var.scss" as v;
+
+.js-toggle-trigger {
+	cursor: pointer;
+}
+.js-toggle-content {
+	display: none;
+}
