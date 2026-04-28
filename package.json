@@ -1,0 +1,33 @@
+{
+  "name": "portfolio-vite",
+  "version": "1.0.0",
+  "description": "vite用に作成するテスト用ポートフォリオ",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miyakehiro/portfolio-vite.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/miyakehiro/portfolio-vite/issues"
+  },
+  "homepage": "https://github.com/miyakehiro/portfolio-vite#readme",
+  "devDependencies": {
+    "sass": "^1.99.0",
+    "sass-embedded": "^1.99.0",
+    "sharp": "^0.34.5",
+    "terser": "^5.46.1",
+    "vite": "^8.0.9",
+    "vite-plugin-ejs": "^1.7.0",
+    "vite-plugin-image-optimizer": "^2.0.3",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-webp-generator": "^0.1.0"
+  }
+}

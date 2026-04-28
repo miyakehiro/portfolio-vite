@@ -1,0 +1,125 @@
+<%- include('inc/_header', {header: data.header.index}); %>
+
+<div class="l-contents">
+    <main>
+        <%# --- ABOUT --- %>
+        <section id="about" class="home-about sec js-anime-elem">
+            <div class="home-about__inner u-inner">
+                <div class="c-tit01">
+                    <h2 class="tit c-tit01__en">ABOUT</h2>
+                    <p class="tit__ja c-tit01__ja">サイトについて</p>
+                </div>
+                <p class="txt">
+                    このサイトは、ポートフォリオサイトです。<br>
+                    これまで手掛けたWebサイト、自身のスキル・経歴をまとめています。<br>
+                    エンジニアとしての私を知ってもらうために制作しました。
+                </p>
+            </div>
+        </section>
+
+        <%# --- PROFILE --- %>
+        <section id="profile" class="home-profile sec js-anime-elem">
+            <div class="home-profile__inner u-inner">
+                <div class="c-tit01">
+                    <h2 class="tit c-tit01__en">PROFILE</h2>
+                    <p class="tit__ja c-tit01__ja">自己紹介</p>
+                </div>
+                <div class="home-profile__box">
+                    <p class="txt">
+                        京都出身のエンジニアです。大学卒業後、実務を通してWebデザインの基礎からコーディングまでを習得。<br>
+                        現在はコーダー・フロントエンドエンジニアとして、多くのWebサイト制作に携わっています。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <%# --- WORKS --- %>
+        <section id="works" class="home-works sec js-anime-elem">
+            <div class="home-works__inner u-inner">
+                <div class="c-tit01">
+                    <h2 class="tit c-tit01__en">WORKS</h2>
+                    <p class="tit__ja c-tit01__ja">これまでの仕事</p>
+                </div>
+                <p class="home-works__lead">
+                    制作会社で携わった実務の一部を掲載しています。<br>
+                    <span class="ico create">制作</span>：新規・リニューアル・LP制作等 / 
+                    <span class="ico update">管理</span>：更新・修正・運用等
+                </p>
+
+                <div class="home-works__box">
+                    <div class="tab-scroll">
+                        <ul class="tab-list">
+                            <% const companies = ['weave', 'M-HAND', 'システムクリエイト', 'ノース・ヒル', 'ekzm']; %>
+                            <% companies.forEach((company, index) => { %>
+                                <li class="js-switch-tab tab-list-item <%= index === 0 ? 'is-active' : '' %>"><%= company %></li>
+                            <% }); %>
+                        </ul>
+                    </div>
+
+                    <%# 各企業の内容。IDなどは規則的に生成 %>
+                    <% companies.forEach((company, index) => { %>
+                        <div class="list-box js-switch-content <%= index === 0 ? 'is-active' : '' %>">
+                            <p class="lead">
+                                <%# ここに各企業の説明文。本来はdataから取得が理想 %>
+                                <%- data.worksDescription[index] %> 
+                            </p>
+                            <ul id="js-works0<%= index + 1 %>" class="list <%= index < 2 ? 'text-list' : 'js-slider' %>">
+                                <%# ここに動的にリストが挿入される想定 %>
+                            </ul>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </section>
+
+        <%# --- SKILL --- %>
+        <section id="skill" class="home-skill sec js-anime-elem">
+            <div class="home-skill__inner u-inner">
+                <div class="c-tit01">
+                    <h2 class="tit c-tit01__en">SKILL</h2>
+                    <p class="tit__ja c-tit01__ja">保有スキル</p>
+                </div>
+                <div class="home-skill__box">
+                    <ul class="list">
+                        <% 
+                        // スキルデータの配列化（jsonから読み込めるようになるとさらに良い）
+                        const skillList = [
+                            { name: 'Illustrator', icon: '01', desc: '基本的な操作が可能。デザインデータからの書き出し、パーツ制作に対応。' },
+                            { name: 'Photoshop', icon: '02', desc: '基本的な操作が可能。画像加工やデザインからの切り出しに対応。' },
+                            { name: 'XD', icon: '03', desc: '基本的な操作が可能。プロトタイプからのコーディングに対応。' },
+                            { name: 'DreamWeaver', icon: '04', desc: 'Excelからの表組み作成や、クリッカブルマップ作成時に活用。' },
+                            { name: 'VS Code', icon: '05', desc: 'メインエディタ。Emmetやスニペット、プラグインを駆使し効率化を追求。' },
+                            { name: 'HTML5', icon: '06', desc: 'W3C準拠。SEOと保守性を意識したセマンティックなマークアップ。' },
+                            { name: 'CSS3', icon: '07', desc: 'BEM等の設計思想に基づいた、破綻しにくいスタイル定義。' },
+                            { name: 'JavaScript', icon: '08', desc: '既存スクリプトのカスタマイズ、外部ライブラリの実装が可能。' },
+                            { name: 'Sass', icon: '09', desc: 'SCSS記法。Dart Sass環境でのコンパイル、ディレクトリ分割管理。' },
+                            { name: 'jQuery', icon: '10', desc: 'プラグイン導入から既存コードの調整・改修まで対応。' },
+                            { name: 'gulp', icon: '11', desc: 'タスクランナーによる自動化。voltaでのNode.jsバージョン管理。' },
+                            { name: 'SEO', icon: '12', desc: '構造化データ、GA/サチコン登録。基本的な内部対策の実施。' },
+                            { name: 'WordPress', icon: '13', desc: 'テーマ制作、カスタム投稿の表示、プラグイン選定など多数の実績。' },
+                            { name: 'Git', icon: '14', desc: 'SourceTreeやVS Codeでのバージョン管理。GitHubでの共同制作経験。' },
+                            { name: 'React', icon: '15', desc: 'コンポーネント構造の把握、ソースコードの読み取りと微修正。' },
+                            { name: 'Astro', icon: '16', desc: '実案件での使用経験あり。モダンな静的サイト構築への対応。' }
+                        ];
+                        %>
+
+                        <% skillList.forEach(skill => { %>
+                            <li class="list-item">
+                                <picture class="img">
+                                    <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill<%= skill.icon %>.webp" type="image/webp">
+                                    <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill<%= skill.icon %>.png" alt="<%= skill.name %>">
+                                </picture>
+                                <div class="txt-box">
+                                    <h3 class="sub-tit"><%= skill.name %></h3>
+                                    <p class="txt"><%- skill.desc %></p>
+                                </div>
+                            </li>
+                        <% }); %>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+
+<%- include('inc/_footer', {footer: data.footer}); %>

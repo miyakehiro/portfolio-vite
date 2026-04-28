@@ -1,0 +1,42 @@
+[
+    {
+        "title": "ファイテン株式会社 ショップサービス案内 ",
+        "link": "https://www.phiten.com/shop/service/",
+        "img" : "assets/img/home/works/img33.png",
+        "create": "create"
+    },
+    {
+        "title": "ひらかたパーク　CLAMP展 -SELECTION-　（削除前）",
+        "link": "",
+        "img" : "",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "佛教大学入試情報サイト わかる！受験しやすい佛大の入試 - 2025年度入試のポイント",
+        "link": "https://www.bukkyo-u.ac.jp/find/exam/understand/",
+        "img" : "assets/img/home/works/img31.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "ファイテン株式会社　糸井嘉男氏 特選グッズプレゼントキャンペーン（削除前）",
+        "link": "",
+        "img" : "",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "佛教大学‗OLC ビジネススキルアップ講座",
+        "link": "https://www.bukkyo-u.ac.jp/olc/business/",
+        "img" : "assets/img/home/works/img29.png",
+        "create": "create",
+        "update": "update"
+    },
+    {
+        "title": "京都パートナーズ株式会社",
+        "link": "https://www.kyoto-partners.co.jp/",
+        "img" : "assets/img/home/works/img28.png",
+        "create": "create"
+    }
+]

@@ -1,0 +1,11 @@
+# Node.js関連（膨大な数になります）
+node_modules/
+
+# キャッシュや一時ファイル
+.DS_Store
+Thumbs.db
+.vite/
+.gulp/
+
+# 環境設定ファイル
+.env
