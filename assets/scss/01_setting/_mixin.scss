@@ -10,9 +10,13 @@ $breakpoints: (
 ) !default;
 
 @mixin mq($breakpoint: pc) {
-	@media #{map.get($breakpoints, $breakpoint)} {
-		@content;
-	}
+    @if map.has-key($breakpoints, $breakpoint) {
+        @media #{map.get($breakpoints, $breakpoint)} {
+            @content;
+        }
+    } @else {
+        @error "指定されたブレイクポイント '#{$breakpoint}' は定義されていません。";
+    }
 }
 @mixin transform($value) {
 		-webkit-transform: $value;

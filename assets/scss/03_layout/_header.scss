@@ -40,7 +40,7 @@
 		@include m.trans;
 		&-inner{
 			border-bottom: none;
-			padding: 0 30px;
+			padding: 0 clamp(30px, 5vw, 60px);
 		}
 		&__logo {
 			font-size: 2rem;
@@ -80,7 +80,6 @@
 		left: 5px;
 		width: 20px;
 		height: 2px;
-		content: '';
 		background: v.$clr_black;
 		@include m.trans;
 		&:nth-child(1) { top: 7px; }
@@ -95,27 +94,6 @@
 		}
 	}
 	@include m.mq(tb){
-		top: 8px;
-		right: 20px;
-		width: 45px;
-		height: 45px;
-		&__line {
-			left: 5px;
-			width: 36px;
-			height: 2px;
-			@include m.trans;
-			&:nth-child(1) { top: 10px; }
-			&:nth-child(2) { top: 20px; }
-			&:nth-child(3) { top: 30px; }
-		}
-		&.is-open {
-			.nav-btn__line {
-				&:nth-child(1) { top: 18px; transform: rotate(-45deg); }
-				&:nth-child(3) { top: 18px; transform: rotate(45deg); }
-			}
-		}
-	}
-	@media (min-width: 800px){
 		display: none;
 	}
 }
@@ -134,7 +112,6 @@
 	border-top: 1px solid  #f2f2f2;
 	box-sizing: border-box;
 	text-align: center;
-	-webkit-overflow-scrolling : touch;
 	@include m.trans;
 	overflow: auto;
 	transform: translateX(120%);
@@ -159,10 +136,11 @@
 			text-decoration: none;
 		}
 	}
-	@media (min-width: 800px) {
+	@include m.mq(tb) {
 		transform: inherit;
 		position: static;
 		width: auto;
+		min-width: auto;
 		max-height: inherit;
 		padding: 0;
 		border: none;
