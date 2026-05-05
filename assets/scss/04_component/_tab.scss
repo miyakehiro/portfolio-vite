@@ -9,9 +9,12 @@ tab
 	&__item {
 		margin-right: 5px;
 		padding: 5px 10px;
+		cursor: pointer;
+		user-select: none;
 		&.is-active {
 			background: #333;
 			color: #fff;
+			cursor: default;
 		}
 	}
 }
