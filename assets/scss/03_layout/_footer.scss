@@ -33,15 +33,13 @@
 			border: 0px;
 			border-top: solid 2px #fff;
 			border-right: solid 2px #fff;
-			-ms-transform: rotate(-45deg);
-			-webkit-transform: rotate(-45deg);
 			transform: rotate(-45deg);
 			position: absolute;
 			left: 50%;
 			margin-left: -8px;
 		}
 	}
-	@media (min-width: 600px){
+	@include m.mq(tb){
 		opacity: 0;
 		visibility: hidden;
 		position: fixed;
