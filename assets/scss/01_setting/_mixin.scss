@@ -6,7 +6,7 @@
 $breakpoints: (
 	'sp': 'all and (max-width: 599px)',
 	'tb': 'all and (min-width: 600px)',
-	'pc': 'all and (min-width: 1200px)',
+	'pc': 'all and (min-width: 1025px)',
 ) !default;
 
 @mixin mq($breakpoint: pc) {
@@ -19,8 +19,6 @@ $breakpoints: (
     }
 }
 @mixin transform($value) {
-		-webkit-transform: $value;
-		-ms-transform: $value;
 	transform: $value;
 }
 
@@ -29,12 +27,12 @@ $breakpoints: (
 	font-family: 'Oswald', sans-serif;
 }
 
-@mixin skew{
-	transform:skewY(-3.5deg);
-	transform-origin: left top;
-	.inner{
-		transform:skewY(3.5deg);
-	}
+@mixin skew($deg: -3.5deg) {
+    transform: skewY($deg);
+    transform-origin: left top;
+    .inner {
+        transform: skewY($deg * -1); // 反対方向に自動計算
+    }
 }
 
 @mixin bold{
