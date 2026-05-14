@@ -44,7 +44,7 @@
         const $target = $(target);
         if ($target.length) {
             const width = $(window).width();
-            if (width <= 600 && !$target.hasClass('slick-initialized') && $target.children().length > 1) {
+            if (width <= 583 && !$target.hasClass('slick-initialized') && $target.children().length > 1) {
                 $target.slick({
                     arrows: true,
                     dots: true,
@@ -54,26 +54,40 @@
                     centerMode: true,
                     centerPadding: '30px',
                 });
-            } else if (width > 600 && $target.hasClass('slick-initialized')) {
+            } else if (width > 584 && $target.hasClass('slick-initialized')) {
                 $target.slick('unslick');
-            } else if (width <= 600 && $target.hasClass('slick-initialized') && $target.children().length <= 1) {
+            } else if (width <= 584 && $target.hasClass('slick-initialized') && $target.children().length <= 1) {
                 $target.slick('unslick');
             }
         }
     }
 
+    // タブクリック時の処理
     if ($('.js-switch-tab').length > 0) {
         $('.js-switch-tab').on('click', function () {
+            // --- 1. 全てのリセット ---
+            $('.js-switch-tab')
+                .removeClass('is-active')
+                .attr('aria-selected', 'false');
+            
             $('.js-switch-content').removeClass('is-active');
-            $('.js-switch-tab').removeClass('is-active');
-            $(this).addClass('is-active');
-            const targetContentId = $(this).index();
-            $('.js-switch-content').eq(targetContentId).addClass('is-active');
 
-            $('.js-switch-content.is-active').each(function(){
-                if($(this).hasClass('js-slider')) {
-                    initSlick('#' + $(this).attr('id'));
-                }
+            // --- 2. 選択されたタブのアクティブ化 ---
+            $(this)
+                .addClass('is-active')
+                .attr('aria-selected', 'true');
+
+            // --- 3. aria-controls の値（ID）を使ってコンテンツを特定して表示（より安全な方法） ---
+            const targetId = $(this).attr('aria-controls'); // 例: "panel-c" を取得
+            const $activeContent = $('#' + targetId);      // id="panel-c" の要素を直接指定
+            $activeContent.addClass('is-active');
+
+            // --- 4. スライダーの初期化 ---
+            if ($activeContent.hasClass('js-slider')) {
+                initSlick('#' + $activeContent.attr('id'));
+            }
+            $activeContent.find('.js-slider').each(function(){
+                initSlick('#' + $(this).attr('id'));
             });
         });
     }
@@ -91,13 +105,26 @@
             }
         });
 
+        let resizeTimer;
         $(window).on('resize', function () {
-            $('.js-switch-content.is-active').each(function(){
-                if($(this).hasClass('js-slider')) {
-                    initSlick('#' + $(this).attr('id'));
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(function() {
+                // 1. アクティブなパネル内のスライダーを再計算
+                $('.js-switch-content.is-active').each(function(){
+                    if($(this).hasClass('js-slider')) {
+                        initSlick('#' + $(this).attr('id'));
+                    }
+                    $(this).find('.js-slider').each(function(){
+                        initSlick('#' + $(this).attr('id'));
+                    });
+                });
+
+                // 2. PCサイズ（600px超）になったら、全パネルのスライダークラスを解除して回る
+                if ($(window).width() > 600) {
+                    $('.slick-initialized').slick('unslick');
                 }
-            });
+            }, 200);
         });
     });
-    
+
 })(jQuery);

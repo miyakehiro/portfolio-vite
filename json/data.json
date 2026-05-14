@@ -4,7 +4,6 @@
         "index": {
           "title": "my page",
           "description": "このサイトは、ポートフォリオサイトです。これまで手掛けたWebサイト、自身のスキル・経歴をまとめています。",
-          "keywords": "フロントエンドエンジニア,コーダー,コーディング,HTML,CSS,SCSS,Javascript,PHP,WordPress,ポートフォリオ",
           "slug": "home",
           "baseUrl": "",
           "cssSrc": "assets/css",

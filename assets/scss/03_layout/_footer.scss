@@ -38,6 +38,9 @@
 			left: 50%;
 			margin-left: -8px;
 		}
+		&>span{
+			display: none;
+		}
 	}
 	@include m.mq(tb){
 		opacity: 0;

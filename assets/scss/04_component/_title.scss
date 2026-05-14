@@ -6,11 +6,13 @@ title
 .c-tit01{
   text-align: center;
   &__en{
+    display: block;
     font-size: clamp(2.2rem, calc(6.5vw + -1.40rem), 3.2rem);
     font-weight: 700;
     text-transform: uppercase;
   }
   &__ja{
+    display: block;
     font-size: clamp(1rem, calc(6.5vw + -1.40rem), 1.2rem);
   }
 }

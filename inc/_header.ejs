@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width">
     <title><%- data.header.index.title %></title>
     <meta name="description" content="<%- data.header.index.description %>">
-    <meta name="keywords" content="<%- data.header.index.keywords %>"> 
     <meta property="og:locale" content="ja_JP">
     <meta property="og:type" content="article">
     <meta property="og:title" content="<%- data.header.index.title %>">
@@ -19,35 +18,54 @@
     <link rel="stylesheet" type="text/css" href="<%- data.header.index.cssSrc %>/slick.css">
     <link rel="stylesheet" type="text/css" href="<%- data.header.index.cssSrc %>/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="<%- data.header.index.cssSrc %>/style.css">
+    <!-- JSON-LD -->
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "ミヤケ",
+            "jobTitle": "Front-end Engineer",
+            "url": "https://miyakehiro.github.io/portfolio-vite/dist/",
+            "sameAs": [
+                "https://github.com/miyakehiro/portfolio-vite"
+            ],
+            "knowsAbout": ["HTML5", "CSS3", "JavaScript", "React", "WordPress", "Astro"],
+            "description": "京都を拠点に活動するコーダー・フロントエンドエンジニア。フロントエンド開発を得意としています。"
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-2.2.2.min.js" defer></script>
+    <script src="<%- data.footer.jsSrc %>/common.min.js"  defer></script>
+    <script src="<%- data.footer.jsSrc %>/works.min.js" defer></script>
+    <script src="<%- data.footer.jsSrc %>/slick.min.js" defer></script>
 </head>
 <body id="<%- data.header.index.slug %>" class="js-anime">
     <div class="js-media-query u-media-query"></div>
     <div class="js-nav-overlay nav-overlay"></div>
     <div class="l-wrapper">
-        <header class="js-header l-header" itemscope itemtype="http://schema.org/WPHeader">
+        <header class="js-header l-header">
             <div class="hd-info">
                 <div class="hd-info-inner">
-                    <h1 class="hd-info__logo js-logo">
-                        <a href="/" class="hd-info_logo-link u-alpha"><%- data.header.index.title %></a>
-                    </h1>
-                    <ul class="js-nav-btn nav-btn">
-                        <li class="nav-btn__line"></li>
-                        <li class="nav-btn__line"></li>
-                        <li class="nav-btn__line"></li>
-                    </ul>
-                    <nav class="js-nav-content l-nav animated-nav" itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+                    <div class="hd-info__logo js-logo">
+                        <a href="/portfolio-vite/dist/" class="hd-info_logo-link u-alpha"><%- data.header.index.title %></a>
+                    </div>
+                    <button class="js-nav-btn nav-btn" aria-label="メニューを開閉する" aria-expanded="false">
+                        <span class="nav-btn__line"></span>
+                        <span class="nav-btn__line"></span>
+                        <span class="nav-btn__line"></span>
+                    </button>
+                    <nav class="js-nav-content l-nav animated-nav">
                         <ul class="nav-list">
-                            <li class="nav-list__item" itemprop="name">
-                                <a class="nav-list__link" itemprop="URL" href="#about">ABOUT</a>
+                            <li class="nav-list__item">
+                                <a class="nav-list__link" href="#about">ABOUT</a>
                             </li>
-                            <li class="nav-list__item" itemprop="name">
-                                <a class="nav-list__link" itemprop="URL" href="#profile">PROFILE</a>
+                            <li class="nav-list__item">
+                                <a class="nav-list__link" href="#profile">PROFILE</a>
                             </li>
-                            <li class="nav-list__item" itemprop="name">
-                                <a class="nav-list__link" itemprop="URL" href="#works">WORKS</a>
+                            <li class="nav-list__item">
+                                <a class="nav-list__link" href="#works">WORKS</a>
                             </li>
-                            <li class="nav-list__item" itemprop="name">
-                                <a class="nav-list__link" itemprop="URL" href="#skill">SKILL</a>
+                            <li class="nav-list__item">
+                                <a class="nav-list__link" href="#skill">SKILL</a>
                             </li>
                         </ul>
                     </nav>
@@ -57,9 +75,9 @@
         <div class="l-main-img">
             <picture>
                 <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/img_main01.webp" type="image/webp">
-                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/img_main01.png" alt="<%- data.header.index.title %>">
+                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/img_main01.png" alt="<%- data.header.index.title %>" fetchpriority="high">
             </picture>
 			<div class="l-main-img-inner">
-				<p class="main-txt"><%- data.header.index.title %></p>
+				<h1 class="main-txt"><%- data.header.index.title %></h1>
 			</div>
 		</div>
