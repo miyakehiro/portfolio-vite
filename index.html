@@ -1,14 +1,14 @@
 <%- include('inc/_header', {header: data.header.index}); %>
 
-<div class="l-contents">
-    <main>
+<main>
+    <div class="l-contents">
         <%# --- ABOUT --- %>
         <section id="about" class="home-about sec js-anime-elem">
             <div class="home-about__inner u-inner">
-                <div class="c-tit01">
-                    <h2 class="tit c-tit01__en">ABOUT</h2>
-                    <p class="tit__ja c-tit01__ja">サイトについて</p>
-                </div>
+                <h2 class="c-tit01">
+                    <span class="tit c-tit01__en" aria-hidden="true">ABOUT</span>  
+                    <span class="tit__ja c-tit01__ja">サイトについて</span>
+                </h2>
                 <p class="txt">
                     このサイトは、ポートフォリオサイトです。<br>
                     これまで手掛けたWebサイト、自身のスキル・経歴をまとめています。<br>
@@ -20,10 +20,10 @@
         <%# --- PROFILE --- %>
         <section id="profile" class="home-profile sec js-anime-elem">
             <div class="home-profile__inner u-inner">
-                <div class="c-tit01">
-                    <h2 class="tit c-tit01__en">PROFILE</h2>
-                    <p class="tit__ja c-tit01__ja">自己紹介</p>
-                </div>
+                <h2 class="c-tit01">
+                    <span class="tit c-tit01__en" aria-hidden="true">PROFILE</span>  
+                    <span class="tit__ja c-tit01__ja">自己紹介</span>
+                </h2>
                 <div class="home-profile__box">
                     <p class="txt">
                         京都出身のエンジニアです。大学卒業後、実務を通してWebデザインの基礎からコーディングまでを習得。<br>
@@ -36,10 +36,10 @@
         <%# --- WORKS --- %>
         <section id="works" class="home-works sec js-anime-elem">
             <div class="home-works__inner u-inner">
-                <div class="c-tit01">
-                    <h2 class="tit c-tit01__en">WORKS</h2>
-                    <p class="tit__ja c-tit01__ja">これまでの仕事</p>
-                </div>
+                <h2 class="c-tit01">
+                    <span class="tit c-tit01__en" aria-hidden="true">WORKS</span>  
+                    <span class="tit__ja c-tit01__ja">これまでの仕事</span>
+                </h2>
                 <p class="home-works__lead">
                     制作会社で携わった実務の一部を掲載しています。<br>
                     <span class="ico create">制作</span>：新規・リニューアル・LP制作等 / 
@@ -48,17 +48,20 @@
 
                 <div class="home-works__box">
                     <div class="tab-scroll">
-                        <ul class="tab-list">
+                        <span class="tab-list" role="tablist">
                             <% const companies = ['weave', 'M-HAND', 'システムクリエイト', 'ノース・ヒル', 'ekzm']; %>
-                            <% companies.forEach((company, index) => { %>
-                                <li class="js-switch-tab tab-list-item <%= index === 0 ? 'is-active' : '' %>"><%= company %></li>
+                            <% companies.forEach((company, index) => { 
+                               const tabId = String.fromCharCode(97 + index);
+                            %>
+                                <button class="js-switch-tab tab-list-item <%= index === 0 ? 'is-active' : '' %>" role="tab" id="tab-<%= tabId %>" aria-selected="<%= index === 0 ? 'true' : 'false' %>" aria-controls="panel-<%= tabId %>"><%= company %></button>
                             <% }); %>
-                        </ul>
+                        </span>
                     </div>
 
                     <%# 各企業の内容。IDなどは規則的に生成 %>
-                    <% companies.forEach((company, index) => { %>
-                        <div class="list-box js-switch-content <%= index === 0 ? 'is-active' : '' %>">
+                    <% companies.forEach((company, index) => { 
+                       const tabId = String.fromCharCode(97 + index);%>
+                        <div class="list-box js-switch-content <%= index === 0 ? 'is-active' : '' %>" role="tabpanel" id="panel-<%= tabId %>" aria-labelledby="tab-<%= tabId %>">
                             <p class="lead">
                                 <%# ここに各企業の説明文。本来はdataから取得が理想 %>
                                 <%- data.worksDescription[index] %> 
@@ -75,10 +78,10 @@
         <%# --- SKILL --- %>
         <section id="skill" class="home-skill sec js-anime-elem">
             <div class="home-skill__inner u-inner">
-                <div class="c-tit01">
-                    <h2 class="tit c-tit01__en">SKILL</h2>
-                    <p class="tit__ja c-tit01__ja">保有スキル</p>
-                </div>
+                <h2 class="c-tit01">
+                    <span class="tit c-tit01__en" aria-hidden="true">SKILL</span>  
+                    <span class="tit__ja c-tit01__ja">保有スキル</span>
+                </h2>
                 <div class="home-skill__box">
                     <ul class="list">
                         <% 
@@ -107,7 +110,7 @@
                             <li class="list-item">
                                 <picture class="img">
                                     <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill<%= skill.icon %>.webp" type="image/webp">
-                                    <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill<%= skill.icon %>.png" alt="<%= skill.name %>">
+                                    <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill<%= skill.icon %>.png" loading="lazy" alt="">
                                 </picture>
                                 <div class="txt-box">
                                     <h3 class="sub-tit"><%= skill.name %></h3>
@@ -119,7 +122,7 @@
                 </div>
             </div>
         </section>
-    </main>
-</div>
+    </div>
+</main>
 
 <%- include('inc/_footer', {footer: data.footer}); %>
